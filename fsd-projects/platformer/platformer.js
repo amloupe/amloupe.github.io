@@ -35,13 +35,13 @@ $(function () {
     createPlatform(125,605,100,5)
     createPlatform(400,510,100,5)
     createPlatform(600,403,100,5)
-    createPlatform(890,450,130,300)
-    createPlatform(900,100,120,200)
+    createPlatform(890,480,150,300)
+    createPlatform(900,115,120,200)
     createPlatform(1100,405,100,5)
     createPlatform(1300,295,50,5)
-    createPlatform(1100,225,73,5)
-    createPlatform(750,200,100,5)
-    createBadPlatform(600,258,100,5,"gray")
+    createPlatform(1100,230,73,5)
+    createPlatform(750,210,100,5)
+    createBadPlatform(590,256,100,5,"gray")
     createBadPlatform(400,300,100,5,"gray")
     createBadPlatform(200,250,100,5,"gray")
     createPlatform(650,100,100,5)
@@ -65,9 +65,9 @@ $(function () {
     // TODO 4 - Create Cannons
 createCannon("right",750,5)
 createCannon("top",300,790)
-createCannon("right",450,2100)
-createCannon("top",1150,1000)
-createCannon("left",150,1900)
+createCannon("right",460,2250)
+createCannon("top",1195,2750)
+createCannon("left",180,1900)
 
     
     
