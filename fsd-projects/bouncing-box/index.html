@@ -8,7 +8,7 @@
       .box {
         width: 70px;
         height: 70px;
-        background-color: teal;
+        background-color: rgb(79, 5, 197);
         font-size: 300%;
         text-align: center;
         user-select: none;
@@ -42,6 +42,8 @@
         var box = jQuery(".box"); // reference to the HTML .box element
         var board = jQuery(".board"); // reference to the HTML .board element
         var boardWidth = board.width(); // the maximum X-Coordinate of the screen
+        var boardHeight = jQuery(window).height(); // the maximum Y-Coordinate of the screen
+        
 
         // update the boardWidth variable when the window is resized
         jQuery(window).on("resize", function () {
@@ -55,20 +57,32 @@
         box.on("click", handleBoxClick);
 
         // moves the Box to a new position on the screen along the X-Axis
-        function moveBoxTo(newPositionX) {
-          box.css("left", newPositionX);
-        }
+        function moveBoxTo(newPositionX, newPositionY) {
+        box.css("left", newPositionX);
+        box.css("top", newPositionY);
+}
 
         // changes the text displayed on the Box
         function changeBoxText(newText) {
           box.text(newText);
         }
+        
 
         //////////////////////////////////////////////////////////////////
         /////////////////// YOUR CODE BELOW HERE /////////////////////////
         //////////////////////////////////////////////////////////////////
 
         // TODO 2 - Variable declarations
+        var positionX = 300;
+        var points = 0;
+        var speed = 10; 
+        var positionY = 300;
+        var speedY = 10;
+        var colorStr = "rgb(50, 25, 250)";
+        box.css("background-color", colorStr);
+       var randomNumberBetween0and10 = Math.random() * 10;
+        
+        
 
 
 
@@ -80,6 +94,25 @@
          * If the box drifts off the screen, turn it around!
          */
         function update() {
+          moveBoxTo(positionX, positionY);
+          
+          positionX = positionX + speed;
+          positionY = positionY + speedY;
+
+          if (positionX > boardWidth){
+            speed *= -1;
+          }
+          if (positionX < 0){
+            speed *= -1;
+          }
+          if (positionY  > boardHeight){
+            speedY *= -1;
+          }
+          if (positionY < 0){
+            speedY *= -1;
+          }
+          getRandomColor()
+        
 
         
 
@@ -94,10 +127,25 @@
          * - move the box to the left side of the screen.
          */
         function handleBoxClick() {
+        positionX = 0;
+        changeBoxText(points)
+        points++; 
+        speed = 3 * points + 10;
+        getRandomColor()
+        var randomNumberBetween0and10 = Math.random() * 10;
+        var colorStr = "rgb(50, 25, 250)";
+        box.css("background-color", colorStr);
 
 
 
 
+
+        }
+
+        function getRandomColor(){
+          var randomNumberBetween0and10 = Math.random() * 10;
+           var colorStr = "rgb(50, 25, 250)";
+        box.css("background-color", colorStr);
         }
 
 
